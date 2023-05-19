@@ -16,6 +16,7 @@ PetMatch is a web-based application designed to help users find the perfect anim
 
 ## APIs Used
 - TheDogAPI: The application utilizes the API provided by TheDogAPI (https://www.thedogapi.com/) to retrieve information on different animal breeds and their attributes.
+- Petfinder API: The Petfinder API (Application Programming Interface) allows you to access the Petfinder database of hundreds of thousands of pets ready for adoption and over ten thousand animal welfare organizations. 
 - ((Still looking for local))
 
 
@@ -28,6 +29,6 @@ PetMatch is a web-based application designed to help users find the perfect anim
 
 
 
-<!--- created by Christopher Erb with formatting suggestions from chatGPT --->
+<!--- created by Christopher Erb with formatting suggestions from chatGPT, verbiage from each different API  --->
 
 
