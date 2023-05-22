@@ -1,8 +1,8 @@
 //token expiration stuff
 //let myApiKey = PTmmWmvcU1eY9pAoleqbM57DyZuzYvKtVAbEUXVxFzxpLpTbkz
 //let mySecretKey = XwHgkStKwEQ56VBCOP0rZb03KYntKbslZLv8tKqE
- let token = `eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJQVG1tV212Y1UxZVk5cEFvbGVxYk01N0R5WnV6WXZLdFZBYkVVWFZ4Rnp4cExwVGJreiIsImp0aSI6ImEzZmMyNTQ1ZjE5OTY1ZGRjMDNjZmM0OWYyNzQ5ODUzMGRkNTQxMjU1Mjc1NzFkZjg3MmY3ODI2Y2M1NTdkZjM4N2I5MzNhNzVlMDNkYWNkIiwiaWF0IjoxNjg0NjExNTQ2LCJuYmYiOjE2ODQ2MTE1NDYsImV4cCI6MTY4NDYxNTE0Niwic3ViIjoiIiwic2NvcGVzIjpbXX0.ltvQn1LYuKDNUG28mzOCjLxJUlbFvBqSIKQjP-YZtA_V_mzyr1xnwf2VGotZP5_tn0pzJzb6DJH-tY1WOvafyB8xnqvkEMduYqaNnhkbhApkiBs0MdbyisHdSSQAre04OSxFKAlxifK653MKFv_agrJ49qki-O0bMnq5NR6RedXt-6pZEpvuUCvOcZtwtMXZAY-I5FpKHIKGopgBmFuaeuOnG_MJ7sCaNCzxd0EbbQ7EdJrXUGyNR48t-TXW1a_N7kMw58cN2Zu2-TK_zS_GS-LBxDb3o6LNwk2wDnDMqO85vlaEuAulbo1vZRBXZhXKBC1acLGCBGDz5uUNg8SGaw`
-/*let tokenExpired = 3590
+ let token = `eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJQVG1tV212Y1UxZVk5cEFvbGVxYk01N0R5WnV6WXZLdFZBYkVVWFZ4Rnp4cExwVGJreiIsImp0aSI6IjVkMGQ3OWM0NzQ3M2I3ZDNmZTMyOWQ1ODEwY2U5MzhmYmRlMDJiZDY4NzFiZTBhODg5OTEwZTA4ODA5NzhiMmY0ZGI4NWFiYzVhMDc5YTA5IiwiaWF0IjoxNjg0NzYxNzEwLCJuYmYiOjE2ODQ3NjE3MTAsImV4cCI6MTY4NDc2NTMxMCwic3ViIjoiIiwic2NvcGVzIjpbXX0.Wz-rIc5rioYtGjtoERR_uYYzUdf5yHdG3DqeGl62SOq7tdiLjQHkjSbt0ihQfwFBgJ5RPtnnm6OgYXBKShC-LrZvgAqKSL4mkYx0cgJ6cwHpTT2-UJ5fo8vYnrncRY82zPOIHTXL_P0j0hUvLpQt6Kl6HIO51Q_3jmFNovjelK7BK0X_hFS06SZy6dOIT6sxi25oOl-6BZfTiM85ftkiSG1MiOAhx6NEDB8c40PzSwRa6pm1OycQWm8TvuVqHGJI7yzBhIrg9C7wD81bKGqLkjV9IsRUjuRw3LaLyokj9caWRXsH4ffsmkrOMGzTUaBa-yoIIAQAg5P5ZexQ2kdTTg`
+ /*let tokenExpired = 3590
 
 function checkExpired ()
 {
@@ -17,23 +17,63 @@ const headers =
 }
 
 
-
-
 const button = document.querySelector('button')
 const breedInput = document.querySelector('input')
-const imgDiv = document.querySelector('div')
+const imgDiv = document.querySelector('.resultDiv')
 const container = document.querySelector('#pContainer')
 const dContainer = document.querySelector('#dContainer')
 
 
-button.addEventListener('click', async () =>
+function sizeCreation()
+{
+    const selectedSizes = []
+
+    
+    const smallBox = document.querySelector(`#sizeSmall`)
+    const medBox = document.querySelector(`#sizeMedium`)
+    const lrgBox = document.querySelector(`#sizeLarge`)
+    const xLrgBox = document.querySelector(`#sizeXLarge`)
+
+    if (smallBox.checked)
+        {
+        selectedSizes.push(smallBox.value)
+        }
+    if (medBox.checked)
+        {
+        selectedSizes.push(medBox.value)
+        }
+    if (lrgBox.checked)
+        {
+        selectedSizes.push(lrgBox.value)
+        }
+    if (xLrgBox.checked)
+        {
+        selectedSizes.push(xLrgBox.value)
+        }
+
+    const sizeString = selectedSizes.join(',')
+    console.log(sizeString)
+    return sizeString
+
+
+}
+
+
+function clearScreen()
 {
     imgDiv.innerHTML = " "
-    // gets breed
+}
+
+button.addEventListener('click', async () =>
+{
+
+    clearScreen()
+    const selectedSizes = sizeCreation()
+    // User knows Breed
     let breed = breedInput.value
     console.log(breed)
 
-    let response = await axios.get(`https://api.petfinder.com/v2/animals?type=dog&limit=10&breed=${breed}`, {
+    let response = await axios.get(`https://api.petfinder.com/v2/animals?type=dog&limit=50&breed=${breed}&size=${selectedSizes}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -45,7 +85,7 @@ button.addEventListener('click', async () =>
             const animal = response.data.animals[i]
             
        
-          //console.log(response.data.animals);
+          console.log(response.data.animals);
           if (!animal.primary_photo_cropped)
           {
             imgDiv.innerHTML += "<p>No Picture available<p>"
