@@ -20,6 +20,8 @@ ThunderClient:  All of the code for the token came from there except the varible
 ChatGPT (4/10)  I asked a lot of questions.  I didn't copy the code, but I definitely read how they did it and did things similarly.
 
 
+Surge pushed to
+PetMatch0508.surge.sh
 
 */
  
@@ -50,7 +52,6 @@ async function getToken() {
     return token
     console.log(response.data.access_token);
   }
-  
 
 getToken()
   // Call the function to get the token
@@ -61,16 +62,59 @@ getToken()
      'Content-Type': 'application/json',
  }
 
-
-
-
-
-
 const button = document.querySelector('button')
 const breedInput = document.querySelector('.breedInput')
 const imgDiv = document.querySelector('.resultDiv')
 const container = document.querySelector('#pContainer')
 const dContainer = document.querySelector('#dContainer')
+let selectedBreed = ''
+
+
+async function populateBreedsDropdown() {
+    try {
+      const token = await getToken();
+      let response = await axios.get(`https://api.petfinder.com/v2/types/dog/breeds`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+  
+      const breeds = response.data.breeds;
+      const breedDropdown = document.querySelector('#breedsDropdown');
+  
+      // Add initial "Search for a breed" option
+      const defaultOption = document.createElement('option');
+      defaultOption.value = '';
+      defaultOption.text = 'Search for a breed';
+      breedDropdown.appendChild(defaultOption);
+  
+      // Populate dropdown options with all breeds
+      breeds.forEach(breed => {
+        const option = document.createElement('option');
+        option.value = breed.name;
+        option.text = breed.name;
+        breedDropdown.appendChild(option);
+      });
+  
+      // Event listener for dropdown selection
+
+      breedDropdown.addEventListener('change', function(event) {
+        selectedBreed = event.target.value;
+      });
+    } catch (error) {
+      console.error("Error with dog breeds", error);
+    }
+  }
+
+
+
+
+
+
+
+
+  populateBreedsDropdown();
+
 
 
 
@@ -177,10 +221,9 @@ function isHouseTrained()
 {
     let isHouseTrained = false
     const houseTrainedBox = document.querySelector(`#isHouseTrained`)
-    //if (houseTrainedBox.checked) isHouseTrained = true
+    if (houseTrainedBox.checked) isHouseTrained = true
     return isHouseTrained
 }
-
 
 function locSlider()
 {
@@ -195,8 +238,6 @@ function locSlider()
     }
     return slider.value
 }
-
-
 
 function clearScreen()
 {
@@ -215,13 +256,10 @@ button.addEventListener('click', async () =>
     const gwDogs = goodWithDogs()
     const gwCats = goodWithCats()
     const houseTrained = isHouseTrained()
-
-
-
+    const breed = selectedBreed
 
     // User knows Breed
-    let breed = breedInput.value
-    console.log(breed)
+
 
     //User sets zip code
     const locZip = document.querySelector(".locZip").value
@@ -238,7 +276,7 @@ button.addEventListener('click', async () =>
 &good_with_children=${gwKids}
 &good_with_dogs=${gwDogs}
 &good_with_cats=${gwCats}
-&house_trained=false
+&house_trained=${houseTrained}
 
 `, {
         headers: {
