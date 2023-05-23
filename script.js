@@ -145,6 +145,43 @@ function ageSelection()
 }
 
 
+function goodWithChildren()
+{
+let gwKids = false
+const gwKidsBox = document.querySelector(`#gwKids`)
+if (gwKidsBox.checked) gwKids = true
+
+return gwKids
+
+}
+
+function goodWithDogs()
+{
+    let gwDogs = false
+    const gwDogsBox = document.querySelector(`#gwDogs`)
+    if (gwDogsBox.checked) gwDogs = true
+    
+    return gwDogs
+}
+
+function goodWithCats()
+{
+    let gwCats = false
+    const gwCatsBox = document.querySelector(`#gwCats`)
+    if (gwCatsBox.checked) gwCats = true
+    
+    return gwCats
+}
+
+function isHouseTrained()
+{
+    let isHouseTrained = false
+    const houseTrainedBox = document.querySelector(`#isHouseTrained`)
+    //if (houseTrainedBox.checked) isHouseTrained = true
+    return isHouseTrained
+}
+
+
 function locSlider()
 {
     var slider = document.querySelector('#locRange')
@@ -174,6 +211,14 @@ button.addEventListener('click', async () =>
     const selectedAges = ageSelection()
     const selectedSex = preferredSex()
     const distAway = locSlider()
+    const gwKids = goodWithChildren()
+    const gwDogs = goodWithDogs()
+    const gwCats = goodWithCats()
+    const houseTrained = isHouseTrained()
+
+
+
+
     // User knows Breed
     let breed = breedInput.value
     console.log(breed)
@@ -183,7 +228,19 @@ button.addEventListener('click', async () =>
 
 
 
-    let response = await axios.get(`https://api.petfinder.com/v2/animals?type=dog&limit=50&breed=${breed}&location=${locZip}&distance=${distAway}&size=${selectedSizes}&age=${selectedAges}&gender=${selectedSex}`, {
+    let response = await axios.get(`https://api.petfinder.com/v2/animals?type=dog&limit=50&page=1
+&breed=${breed}
+&location=${locZip}
+&distance=${distAway}
+&size=${selectedSizes}
+&age=${selectedAges}
+&gender=${selectedSex}
+&good_with_children=${gwKids}
+&good_with_dogs=${gwDogs}
+&good_with_cats=${gwCats}
+&house_trained=false
+
+`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

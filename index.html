@@ -26,7 +26,7 @@
         <input placeholder="Zip Code" class="locZip" type ="text" value="46260">
 
         <div class ="slidecontainer">
-            <input type="range" min="1" max="200" value="100" class="slider" id="locRange">
+            <input type="range" min="1" max="500" value="60" class="slider" id="locRange">
             <span id="outputDist"></span>
         </div>
     </div>
@@ -75,6 +75,12 @@
         </div>
     </div>
 
+    <div id="houseTrainedDiv">
+        <div id="houseTrained">
+            <input type="checkbox" id="isHouseTrained">
+            <label for="isHouseTrained">House Trained</label>
+        </div>
+    </div>
 
 
     <div id="sexDiv">
@@ -89,7 +95,21 @@
 
     </div>
 
+    <div id="goodWith">
+        <div id="Kids">
+            <input type="checkbox" id="gwKids" value = true>
+            <label for="gwKids">Good around kids</label>
+        </div>
+        <div id="Cats">
+            <input type="checkbox" id="gwCats" value = true>
+            <label for="gwCats">Good around cats</label>
+        </div>
+        <div id="Dogs">
+            <input type="checkbox" id="gwDogs" value = true>
+            <label for="gwDogs">Good around other dogs</label>
+        </div>
 
+    </div>
 
     <div class="resultDiv">
         <div id="dogImg">
