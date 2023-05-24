@@ -71,6 +71,9 @@ let selectedBreed = ''
 
 
 async function populateBreedsDropdown() {
+
+// trying try/catch block to see if it helps?
+// it didnt, it just got annoying when it kept tellign me the error was on line (whatever the trycatch was)
     try {
       const token = await getToken();
       let response = await axios.get(`https://api.petfinder.com/v2/types/dog/breeds`, {
@@ -88,7 +91,7 @@ async function populateBreedsDropdown() {
       defaultOption.text = 'Click to select a breed';
       breedDropdown.appendChild(defaultOption);
   
-      // Populate dropdown options with all breeds
+//populates all the options
       breeds.forEach(breed => {
         const option = document.createElement('option');
         option.value = breed.name;
@@ -96,7 +99,7 @@ async function populateBreedsDropdown() {
         breedDropdown.appendChild(option);
       });
   
-      // Event listener for dropdown selection
+//Event listener for click, sets the selected breed to somthign ic an use later
 
       breedDropdown.addEventListener('change', function(event) {
         selectedBreed = event.target.value;
@@ -105,14 +108,6 @@ async function populateBreedsDropdown() {
       console.error("Error with dog breeds", error);
     }
   }
-
-
-
-
-
-
-
-
   populateBreedsDropdown();
 
 

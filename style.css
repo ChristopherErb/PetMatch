@@ -1,35 +1,115 @@
-/*
+body {
+  background-color: rgb(146, 231, 237);
+  margin: 0;
+  padding: 0px;
+}
 
+.wrapper {
+  display: grid;
+  place-items: center;
+}
 
+.wrapper > * {
+  grid-row: auto;
+  grid-column: 1 / -1;
+}
 
-To do:
+#dropdown{
+  margin-bottom: 0px;
+  padding: 15px
+}
+#locDiv{
+  margin-bottom: 0px;
+  padding: 15px
+}
+#sizeDiv{
+  margin-bottom: 0px;
+  padding: 15px
+}
+#ageDiv{
+  margin-bottom: 0px;
+  padding: 15px
+}
+#houseTrainedDiv{
+  margin-bottom: 0px;
+  padding: 15px
+}
+#sexDiv{
+  margin-bottom: 0px;
+  padding: 15px
+}
+#goodWith{
+  margin-bottom: 0px;
+  padding: 15px
+}
+.resultDiv {
+  margin-bottom: 0px;
+  padding: 15px
+}
 
-CSS---
-Page
-Sort (maybe)
+#locDiv{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
 
+}
+#sizeDiv{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
 
+}
+#ageDiv{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
 
+}
+#houseTrainedDiv{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
 
+}
+#sexDiv{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
 
+}
+#goodWith {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
 
-Semi-doable and as done as it's going to get
-House trained
+}
 
-FIX THIS FUNCTIONALITY
-Good with Cats, dogs, kids
+#breedDiv button {
+  display: block;
+  width: 80%;
+  padding: 10px;
+  background-color: rgb(253,163,58);
+  border: solid .5px;
+  cursor: pointer;
+  margin: auto;
 
-Not-Doable 
-breed.primary only
-
-
-
-
-Done
-Dog breed dropdown
-(api calls, setting breed to be searched, etc)
-
-
-
-  */
   
+}
+
+.resultDiv {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+
+}
+
+#dogImg {
+  display: flex;
+  justify-content: center;
+}
+
+#dContainer,
+#pContainer {
+  background-color:  rgb(146, 231, 237);
+  padding: 20px;
+}
