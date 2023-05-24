@@ -29,16 +29,15 @@ pawprint Wallpaper by Sunrise
 
 <div id="dropdown">
         <select id="breedsDropdown"></select>
-
-
+    </div>
 
 
 
     <div id="locDiv">
-        <input placeholder="Zip Code" class="locZip" type ="text" value="46260">
-
+        <input placeholder="Enter Zip Code" class="locZip" type ="text" value="">
         <div class ="slidecontainer">
-            <input type="range" min="1" max="500" value="60" class="slider" id="locRange">
+            <label for="slider">Search Radius</label>
+            <input type="range" min="0" max="500" value="60" step="10" class="slider" id="locRange">
             <span id="outputDist"></span>
         </div>
     </div>
@@ -89,7 +88,7 @@ pawprint Wallpaper by Sunrise
 
     <div id="houseTrainedDiv">
         <div id="houseTrained">
-            <input type="checkbox" id="isHouseTrained">
+            <input type="checkbox" id="isHouseTrained" checked>
             <label for="isHouseTrained">House Trained</label>
         </div>
     </div>
@@ -109,15 +108,15 @@ pawprint Wallpaper by Sunrise
 
     <div id="goodWith">
         <div id="Kids">
-            <input type="checkbox" id="gwKids" value = true>
+            <input type="checkbox" id="gwKids" value = true checked>
             <label for="gwKids">Good around kids</label>
         </div>
         <div id="Cats">
-            <input type="checkbox" id="gwCats" value = true>
+            <input type="checkbox" id="gwCats" value = true checked>
             <label for="gwCats">Good around cats</label>
         </div>
         <div id="Dogs">
-            <input type="checkbox" id="gwDogs" value = true>
+            <input type="checkbox" id="gwDogs" value = true checked>
             <label for="gwDogs">Good around other dogs</label>
         </div>
 
@@ -139,6 +138,6 @@ pawprint Wallpaper by Sunrise
 
 
  
-    </div>
+    
 </body>
 </html>

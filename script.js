@@ -233,7 +233,7 @@ function locSlider()
     }
     return slider.value
 }
-
+locSlider()
 function clearScreen()
 {
     imgDiv.innerHTML = " "
