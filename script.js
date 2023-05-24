@@ -82,10 +82,10 @@ async function populateBreedsDropdown() {
       const breeds = response.data.breeds;
       const breedDropdown = document.querySelector('#breedsDropdown');
   
-      // Add initial "Search for a breed" option
+//Initial search for breed on the box
       const defaultOption = document.createElement('option');
       defaultOption.value = '';
-      defaultOption.text = 'Search for a breed';
+      defaultOption.text = 'Click to select a breed';
       breedDropdown.appendChild(defaultOption);
   
       // Populate dropdown options with all breeds
