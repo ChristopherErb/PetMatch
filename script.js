@@ -1,24 +1,7 @@
-//token expiration stuff
-//let myApiKey = PTmmWmvcU1eY9pAoleqbM57DyZuzYvKtVAbEUXVxFzxpLpTbkz
-//let mySecretKey = XwHgkStKwEQ56VBCOP0rZb03KYntKbslZLv8tKqE
-//let token = `eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJQVG1tV212Y1UxZVk5cEFvbGVxYk01N0R5WnV6WXZLdFZBYkVVWFZ4Rnp4cExwVGJreiIsImp0aSI6IjQyNDgxNTllY2Q3OWZkMDE0MzIzYTliMThkNzQ5MGE1NjM0NTBlNDdkMDNkNWEyN2FlZDFmNWJjMmE2ZmU2MDZiNzJkMzQ1OGJhNGE0NDRkIiwiaWF0IjoxNjg0Nzc0MjQ0LCJuYmYiOjE2ODQ3NzQyNDQsImV4cCI6MTY4NDc3Nzg0NCwic3ViIjoiIiwic2NvcGVzIjpbXX0.rW5RuTrPc37g_1u9cL-E6YaXLKKL6Y91l-OOXbkNCQFJkc85Yml41wvW-t1GXADLd9rLLBKuxxI7QGFDFxnsTLWdP8xZaDhue6fIZuHb_QlUIAPUtgjD8rDZex0BBDXOrreTzIS8A7JBRzswCAJgvSKUFzJ57JBk3sLXvUtrSCFGi_-_VwFKreiZN5WAYQlaDwJqdHeaxUhSrzbdVftHCfpP0DA1tTmPx3CVpLE1cyqoz7nbKRMELoLBD3nk5q_7b-Yr0LbyLB6sSQGcHuubGc5-u4yQS3Bxze1iWx7WxRPNgXRRABY7yRjncSy8oGCplJPmazwa_iPcBzNgliw41w`
- 
- 
- 
- /*let tokenExpired = 3590
-
-function checkExpired ()
-{
-    
-}
-*/
-
-/*Dont delete 
-
+/*
 Things I used with how much I used them:
 ThunderClient:  All of the code for the token came from there except the varible and calling it in the program
 ChatGPT (4/10)  I asked a lot of questions.  I didn't copy the code, but I definitely read how they did it and did things similarly.
-
 
 Surge pushed to
 FureverHome.surge.sh
@@ -237,7 +220,6 @@ function locSlider()
     }
     return slider.value
 }
-locSlider()
 function clearScreen()
 {
     imgDiv.innerHTML = " "
@@ -257,10 +239,7 @@ button.addEventListener('click', async () =>
     const houseTrained = isHouseTrained()
     const breed = selectedBreed
 
-    // User knows Breed
-
-
-    //User sets zip code
+    
     const locZip = document.querySelector(".locZip").value
 
 
