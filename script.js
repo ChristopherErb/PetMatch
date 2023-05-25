@@ -111,8 +111,6 @@ async function populateBreedsDropdown() {
   populateBreedsDropdown();
 
 
-
-
 function preferredSex()
 {
     const selectedSex = []
@@ -293,17 +291,30 @@ button.addEventListener('click', async () =>
           else
           {
           let dogPic = animal.primary_photo_cropped.small
+
+
         
         const div_creation = document.createElement('div')
         div_creation.innerHTML = `<img src=${dogPic}>`
         imgDiv.appendChild(div_creation)
-        
+
+
         const paragraph = document.createElement('p')
-        paragraph.textContent=`This is ${animal.name} the ${animal.breeds.primary}`
+        paragraph.innerHTML=`I am ${animal.name}, the ${animal.breeds.primary}. I am ${animal.distance} miles from the zip code you entered.<br> I can be described as: ${animal.description} <br/> <br/You can find more information, and how to adopt me <a href=${animal.url}>here</a>`
         imgDiv.appendChild(paragraph)
+
+
+
+        const btnCreation = document.createElement('button')
+        btnCreation.innerHTML = `Adopt me!`
+        imgDiv.appendChild(btnCreation)
+
           } 
         }
         });
+
+
+
 
 }
 

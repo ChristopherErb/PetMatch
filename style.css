@@ -86,8 +86,6 @@ body {
 
 }
 
-/* not going to be centered, used padding*/
-
 
 #breedDiv button {
   display: block;
@@ -133,3 +131,27 @@ img {
 {
   margin-left: -43px;
 }
+
+.instructions
+{
+  display: grid;
+  justify-content: center;
+  margin: -20px;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+
+
+/*
+ToDo: Responsive styling for phones/tablets/etc?
+modal thing
+Maybe more instructions?
+Add pawprints
+Click through photos to go to shelter page
+
+--Maybe activity level?
+
+
+*/
