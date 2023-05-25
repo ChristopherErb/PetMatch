@@ -141,7 +141,13 @@ img {
 
 }
 
-
+.js_button
+{
+  height: 50px; 
+  width: 150px;
+  background-color: rgb(253,163,58);
+  font-size: 20px;
+}
 
 
 /*

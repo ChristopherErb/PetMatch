@@ -21,7 +21,7 @@ ChatGPT (4/10)  I asked a lot of questions.  I didn't copy the code, but I defin
 
 
 Surge pushed to
-PetMatch0508.surge.sh
+FureverHome.surge.sh
 
 */
  
@@ -64,7 +64,13 @@ getToken()
 
 const button = document.querySelector('button')
 const breedInput = document.querySelector('.breedInput')
+
+
+
 const imgDiv = document.querySelector('.resultDiv')
+
+
+
 const container = document.querySelector('#pContainer')
 const dContainer = document.querySelector('#dContainer')
 let selectedBreed = ''
@@ -290,24 +296,19 @@ button.addEventListener('click', async () =>
           }
           else
           {
-          let dogPic = animal.primary_photo_cropped.small
+          
+        let dogPic = animal.primary_photo_cropped.small
 
 
         
         const div_creation = document.createElement('div')
         div_creation.innerHTML = `<img src=${dogPic}>`
         imgDiv.appendChild(div_creation)
+        
 
-
-        const paragraph = document.createElement('p')
-        paragraph.innerHTML=`I am ${animal.name}, the ${animal.breeds.primary}. I am ${animal.distance} miles from the zip code you entered.<br> I can be described as: ${animal.description} <br/> <br/You can find more information, and how to adopt me <a href=${animal.url}>here</a>`
-        imgDiv.appendChild(paragraph)
-
-
-
-        const btnCreation = document.createElement('button')
-        btnCreation.innerHTML = `Adopt me!`
-        imgDiv.appendChild(btnCreation)
+        const div2_creation = document.createElement('div')
+        div2_creation.innerHTML = `I am ${animal.name}, the ${animal.breeds.primary}. I am ${animal.distance} miles from the zip code you entered. <br> ${animal.description} <br><br><br><br><br><a href=${animal.url} target=_blank><button class="js_button">Find me!</button></a> <br> <br>`  
+        imgDiv.appendChild(div2_creation)
 
           } 
         }
