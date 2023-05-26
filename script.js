@@ -47,18 +47,10 @@ getToken()
 
 const button = document.querySelector('button')
 const breedInput = document.querySelector('.breedInput')
-
-
-
 const imgDiv = document.querySelector('.resultDiv')
-
-
-
 const container = document.querySelector('#pContainer')
 const dContainer = document.querySelector('#dContainer')
 let selectedBreed = ''
-
-
 async function populateBreedsDropdown() {
 
 // trying try/catch block to see if it helps?
@@ -239,7 +231,7 @@ button.addEventListener('click', async () =>
     const houseTrained = isHouseTrained()
     const breed = selectedBreed
 
-    
+
     const locZip = document.querySelector(".locZip").value
 
 
